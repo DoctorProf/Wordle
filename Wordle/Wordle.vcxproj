@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sources\Cell.cpp" />
     <ClCompile Include="Sources\Data.cpp" />
   </ItemGroup>
   <ItemGroup>

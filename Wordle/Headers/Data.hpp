@@ -9,6 +9,7 @@ namespace texture
 {
     extern std::vector<Texture> letters;
 
+    extern Texture EMPTY;
     extern Texture A;
     extern Texture B;
     extern Texture C;

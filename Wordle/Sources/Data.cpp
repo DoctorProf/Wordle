@@ -2,6 +2,7 @@
 
 std::vector<Texture> texture::letters;
 
+Texture texture::EMPTY;
 Texture texture::A;
 Texture texture::B;
 Texture texture::C;
@@ -31,6 +32,7 @@ Texture texture::Z;
 
 void texture::loadTextures()
 {
+	EMPTY.loadFromFile("Resources/EMPTY.png");
 	A.loadFromFile("Resources/A.png");
 	B.loadFromFile("Resources/B.png");
 	C.loadFromFile("Resources/C.png");
@@ -59,6 +61,7 @@ void texture::loadTextures()
 	Z.loadFromFile("Resources/Z.png");
 
 	letters = {
+		EMPTY,
 		A,
 		B,
 		C,
