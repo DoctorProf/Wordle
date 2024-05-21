@@ -24,6 +24,18 @@
     <ClCompile Include="Sources\Cell.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\Convertor.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Storage.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Generator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Storage.hpp">
@@ -39,6 +51,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Data.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Converter.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -122,6 +137,111 @@
       <Filter>Файлы ресурсов</Filter>
     </Image>
     <Image Include="Resources\Z.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\EMPTY.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\LOSS.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\WIN.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\А.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Б.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\В.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Г.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Д.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Е.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Ж.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\З.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\И.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Й.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\К.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Л.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\М.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Н.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\О.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\П.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Р.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\С.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Т.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\У.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Ф.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Х.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Ц.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Ч.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Ш.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Щ.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Ъ.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Ы.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Ь.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Э.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Ю.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\Я.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
   </ItemGroup>

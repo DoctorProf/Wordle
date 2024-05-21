@@ -21,10 +21,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sources\Cell.cpp" />
+    <ClCompile Include="Sources\Convertor.cpp" />
     <ClCompile Include="Sources\Data.cpp" />
+    <ClCompile Include="Sources\Game.cpp" />
+    <ClCompile Include="Sources\Generator.cpp" />
+    <ClCompile Include="Sources\Storage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Cell.hpp" />
+    <ClInclude Include="Headers\Converter.hpp" />
     <ClInclude Include="Headers\Data.hpp" />
     <ClInclude Include="Headers\Game.hpp" />
     <ClInclude Include="Headers\Generator.hpp" />
@@ -39,6 +44,7 @@
     <Image Include="Resources\C.png" />
     <Image Include="Resources\D.png" />
     <Image Include="Resources\E.png" />
+    <Image Include="Resources\EMPTY.png" />
     <Image Include="Resources\F.png" />
     <Image Include="Resources\G.png" />
     <Image Include="Resources\H.png" />
@@ -46,6 +52,7 @@
     <Image Include="Resources\J.png" />
     <Image Include="Resources\K.png" />
     <Image Include="Resources\L.png" />
+    <Image Include="Resources\LOSS.png" />
     <Image Include="Resources\M.png" />
     <Image Include="Resources\N.png" />
     <Image Include="Resources\O.png" />
@@ -57,9 +64,42 @@
     <Image Include="Resources\U.png" />
     <Image Include="Resources\V.png" />
     <Image Include="Resources\W.png" />
+    <Image Include="Resources\WIN.png" />
     <Image Include="Resources\X.png" />
     <Image Include="Resources\Y.png" />
     <Image Include="Resources\Z.png" />
+    <Image Include="Resources\А.png" />
+    <Image Include="Resources\Б.png" />
+    <Image Include="Resources\В.png" />
+    <Image Include="Resources\Г.png" />
+    <Image Include="Resources\Д.png" />
+    <Image Include="Resources\Е.png" />
+    <Image Include="Resources\Ж.png" />
+    <Image Include="Resources\З.png" />
+    <Image Include="Resources\И.png" />
+    <Image Include="Resources\Й.png" />
+    <Image Include="Resources\К.png" />
+    <Image Include="Resources\Л.png" />
+    <Image Include="Resources\М.png" />
+    <Image Include="Resources\Н.png" />
+    <Image Include="Resources\О.png" />
+    <Image Include="Resources\П.png" />
+    <Image Include="Resources\Р.png" />
+    <Image Include="Resources\С.png" />
+    <Image Include="Resources\Т.png" />
+    <Image Include="Resources\У.png" />
+    <Image Include="Resources\Ф.png" />
+    <Image Include="Resources\Х.png" />
+    <Image Include="Resources\Ц.png" />
+    <Image Include="Resources\Ч.png" />
+    <Image Include="Resources\Ш.png" />
+    <Image Include="Resources\Щ.png" />
+    <Image Include="Resources\Ъ.png" />
+    <Image Include="Resources\Ы.png" />
+    <Image Include="Resources\Ь.png" />
+    <Image Include="Resources\Э.png" />
+    <Image Include="Resources\Ю.png" />
+    <Image Include="Resources\Я.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
