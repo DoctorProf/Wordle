@@ -36,12 +36,12 @@ bool Cell::click(Vector2f position)
 	return (position.x > this->position.x - size.x / 2.0 && position.x < this->position.x + size.x / 2.0) &&
 		(position.y > this->position.y - size.y / 2.0 && position.y < this->position.y + size.y / 2.0);
 }
-void Cell::setLetter(char letter)
+void Cell::setLetter(wchar_t letter)
 {
 	this->letter = letter;
 }
 
-char Cell::getLetter()
+wchar_t Cell::getLetter()
 {
 	return letter;
 }
@@ -54,5 +54,16 @@ void Cell::setStatus(int status)
 int Cell::getStatus()
 {
 	return status;
+}
+
+void Cell::setPosition(Vector2f position) 
+{
+	cell.setPosition(position);
+	this->position = position + size / 2.0f;
+}
+
+Vector2f Cell::getPosition()
+{
+	return position - size / 2.0f;
 }
 

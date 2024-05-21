@@ -1,13 +1,30 @@
-#include <iostream>
+﻿#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Headers/Data.hpp"
 #include "Headers/Cell.hpp"
 #include <nlohmann/json.hpp>
 #include <boost/random.hpp>
 #include <fstream>
+#include <string>
+#include <Windows.h>
 
 using namespace sf;
 using json = nlohmann::json;
+
+std::string wstringToString(std::wstring str)
+{
+	int size = WideCharToMultiByte(CP_UTF8, 0, str.c_str(), -1, nullptr, 0, nullptr, nullptr);
+	std::string utf8Str(size, 0);
+	WideCharToMultiByte(CP_UTF8, 0, str.c_str(), -1, &utf8Str[0], size, nullptr, nullptr);
+	return utf8Str;
+}
+std::wstring stringToWstring(const std::string str)
+{
+	int size = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, nullptr, 0);
+	std::wstring wstr(size, 0);
+	MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, &wstr[0], size);
+	return wstr;
+}
 
 void generateField(std::vector<std::vector<Cell*>>& cells) 
 {
@@ -17,19 +34,40 @@ void generateField(std::vector<std::vector<Cell*>>& cells)
 		cells.push_back(std::vector<Cell*>());
 		for (int j = 0; j < 6; j++)
 		{
-			Cell* new_cell = new Cell(Vector2f(600 + j * size_cell.x + j * 10, 20 + i * size_cell.y + i * 10), size_cell);
+			Cell* new_cell = new Cell(Vector2f(10 + j * size_cell.x + j * 10, 20 + i * size_cell.y + i * 10), size_cell);
 			new_cell->setTexture(texture::letters[0]);
 			cells[i].push_back(new_cell);
 		}
 	}
 }
 
-void generateButtons(std::vector<Cell*>& buttons, std::string alphabet)
+void generateButtons(std::vector<Cell*>& buttons, std::wstring alphabet)
 {
-	Vector2f size_cell{ 60, 60 };
-	for (int i = 0; i < 26; i++)
+	Vector2f size_cell{ 50, 50 };
+	int k = 0;
+	for (int i = 0; i < 32; i++)
 	{
-		Cell* new_cell = new Cell(Vector2f(60 + i * size_cell.x + i * 10, 800), size_cell);
+		Vector2f position{};
+		if (i <= 10) 
+		{
+			position = Vector2f(10 + k * size_cell.x + k++ * 10, 600);
+			if (i == 10) k = 0;
+		}
+		else if (i > 10 && i <= 19)
+		{
+			position =  Vector2f(70 + k * size_cell.x + k++ * 10, 670);
+			if (i == 19) k = 0;
+		}
+		else if(i > 19 && i <= 26)
+		{
+			position = Vector2f(130 + k * size_cell.x + k++ * 10, 740);
+			if (i == 26) k = 0;
+		}
+		else
+		{
+			position = Vector2f(190 + k * size_cell.x + k++ * 10, 810);
+		}
+		Cell* new_cell = new Cell(position, size_cell);
 		new_cell->setTexture(texture::letters[i + 1]);
 		new_cell->setLetter(alphabet[i]);
 		buttons.push_back(new_cell);
@@ -38,27 +76,27 @@ void generateButtons(std::vector<Cell*>& buttons, std::string alphabet)
 
 int main() 
 {
-
 	std::ifstream file_storage("storage.json");
 	json storage = json::parse(file_storage);
 
 	boost::random::mt19937 rng(time(NULL));
 
-	boost::random::uniform_real_distribution<> dist(0, 9);
+	boost::random::uniform_real_distribution<> dist(0, storage["words"].size());
 
 	ContextSettings context;
 	context.antialiasingLevel = 8;
-	RenderWindow window(VideoMode(1920, 1080), "Wordle", Style::Fullscreen, context);
+	RenderWindow window(VideoMode(670, 900), "Wordle", Style::Titlebar, context);
 
-	std::string word = storage["words"][dist(rng)];
-
+	std::wstring word = stringToWstring(storage["words"][dist(rng)]);
+	word.resize(6);
+	std::wstring atteempt_word = L"";
 	texture::loadTextures();
 
 	std::vector<std::vector<Cell*>> cells;
 	std::vector<Cell*> buttons;
 	int attempt = 0;
 	int click = 0;
-	std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+	std::wstring alphabet = L"абвгдежзийклмнопрстуфхцчшщъыьэюя";
 
 	generateField(cells);
 	generateButtons(buttons, alphabet);
@@ -83,6 +121,7 @@ int main()
 						if (click >= 6 || attempt > 4) continue;
 						cells[attempt][click]->setTexture(buttons[i]->getTexture());
 						cells[attempt][click++]->setLetter(buttons[i]->getLetter());
+						atteempt_word += buttons[i]->getLetter();
 					}
 				}
 			}
@@ -94,7 +133,7 @@ int main()
 					if (cells[attempt][i]->getLetter() == word[i]) cells[attempt][i]->setStatus(1);
 					else 
 					{
-						auto it = std::find_if(word.begin(), word.end(), [&](char letter) {
+						auto it = std::find_if(word.begin(), word.end(), [&](wchar_t letter) {
 							return letter == cells[attempt][i]->getLetter();
 							});
 
@@ -111,15 +150,20 @@ int main()
 				}
 				attempt++;
 				click = 0;
+				std::cout << (word == atteempt_word) << std::endl;
+				if (word == atteempt_word) window.close();
+				atteempt_word = L"";
 			}
 			if (event.type == Event::KeyPressed && event.key.code == Keyboard::BackSpace)
 			{
 				if (click == 0) continue;
-				click--;
+				cells[attempt][--click]->setLetter(' ');
+				cells[attempt][click]->setTexture(texture::letters[0]);
+				atteempt_word[click] = wchar_t();
 			}
 		}
 
-		window.clear(Color::Color(149, 200, 216));
+		window.clear(Color::Black);
 
 		for (int i = 0; i < buttons.size(); i++)
 		{

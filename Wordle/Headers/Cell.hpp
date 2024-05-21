@@ -18,20 +18,24 @@ public:
 
 	bool click(Vector2f position);
 
-	void setLetter(char letter);
+	void setLetter(wchar_t letter);
 
-	char getLetter();
+	wchar_t getLetter();
 
 	void setStatus(int status);
 	
 	int getStatus();
+
+	void setPosition(Vector2f position);
+
+	Vector2f getPosition();
 
 private:
 	RectangleShape cell;
 
 	int status;
 	Texture texture;
-	char letter;
+	wchar_t letter;
 
 	Vector2f position;
 	Vector2f size;
