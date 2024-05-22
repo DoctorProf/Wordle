@@ -12,15 +12,11 @@ public:
 
 	void draw(RenderWindow& window);
 
-	void setTexture(Texture texture);
+	void setText(Text text);
 
-	Texture getTexture();
+	Text getText();
 
 	bool click(Vector2f position);
-
-	void setLetter(wchar_t letter);
-
-	wchar_t getLetter();
 
 	void setStatus(int status);
 	
@@ -34,8 +30,7 @@ private:
 	RectangleShape cell;
 
 	int status;
-	Texture texture;
-	wchar_t letter;
+	Text text;
 
 	Vector2f position;
 	Vector2f size;

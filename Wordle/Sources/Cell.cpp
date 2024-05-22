@@ -7,43 +7,34 @@ Cell::Cell(Vector2f position, Vector2f size)
 	cell.setSize(size);
 	cell.setPosition(position);
 	this->status = 0;
-	this->texture = Texture();
-	this->letter = ' ';
+	cell.setFillColor(Color(46, 46, 46));
 }
 
 void Cell::draw(RenderWindow& window) 
 {
-	if (status == 0) cell.setFillColor(Color::White);
 	if (status == 1) cell.setFillColor(Color::Green);
 	if (status == 2) cell.setFillColor(Color::Blue);
-	if (status == 3) cell.setFillColor(Color::Yellow);
-	cell.setTexture(&texture);
+	if (status == 3) cell.setFillColor(Color::Magenta);
 	window.draw(cell);
+	window.draw(text);
 }
 
-void Cell::setTexture(Texture texture) 
+void Cell::setText(Text text) 
 {
-	this->texture = texture;
+	this->text = text;
+	FloatRect rect_text = this->text.getLocalBounds();
+	this->text.setOrigin(Vector2f(rect_text.left + rect_text.getSize().x / 2, rect_text.top + rect_text.getSize().y / 2));
+	this->text.setPosition(position);
 }
-
-Texture Cell::getTexture() 
+Text Cell::getText() 
 {
-	return texture;
+	return text;
 }
 
 bool Cell::click(Vector2f position)
 {
 	return (position.x > this->position.x - size.x / 2.0 && position.x < this->position.x + size.x / 2.0) &&
 		(position.y > this->position.y - size.y / 2.0 && position.y < this->position.y + size.y / 2.0);
-}
-void Cell::setLetter(wchar_t letter)
-{
-	this->letter = letter;
-}
-
-wchar_t Cell::getLetter()
-{
-	return letter;
 }
 
 void Cell::setStatus(int status) 

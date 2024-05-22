@@ -5,13 +5,13 @@ using namespace sf;
 
 int main() 
 {
-	texture::loadTextures();
+	data::loadFont();
 
 	ContextSettings context;
 	context.antialiasingLevel = 8;
 	RenderWindow window(VideoMode(670, 900), "Wordle", Style::Titlebar, context);
 
-	Game game;
+	Game game;	
 
 	while (window.isOpen()) 
 	{
@@ -39,7 +39,6 @@ int main()
 				game.getCells()[i][j]->draw(window);
 			}
 		}
-		
 		window.display();
 	}
 
